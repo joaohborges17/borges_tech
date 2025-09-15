@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +14,7 @@
     <title>Borges Tech Solutions</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="logo_borgestech.png" as="image">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         :root {
@@ -50,7 +50,12 @@
             transition: background 0.3s;
         }
         header.scrolled { background: var(--footer-bg); }
-        header h1 { font-size: 1.9rem; font-weight: 700; }
+        .logo {
+            height: 50px;
+            width: auto;
+            transition: height 0.3s;
+        }
+        header.scrolled .logo { height: 40px; }
         nav { display: flex; gap: 25px; }
         nav a { color: var(--white); font-weight: bold; font-size: 1.1rem; transition: color 0.3s, transform 0.3s; }
         nav a:hover { color: var(--secondary-color); transform: scale(1.05); }
@@ -208,7 +213,7 @@
             display: none;
             position: fixed;
             bottom: 80px;
-            left: 20px; /* Moved to left side */
+            left: 20px;
             width: 360px;
             height: 520px;
             background: var(--white);
@@ -388,6 +393,8 @@
         /* Responsive */
         @media (max-width: 768px) {
             header { flex-direction: column; align-items: flex-start; padding: 12px 25px; }
+            .logo { height: 45px; }
+            header.scrolled .logo { height: 35px; }
             #menu-toggle { display: block; }
             nav { display: none; }
             nav.active { display: flex; }
@@ -409,12 +416,14 @@
             .modal-content { padding: 20px; }
             .chatbot-modal { width: 95%; height: 360px; left: 10px; }
             section { padding: 60px 15px; }
+            .logo { height: 40px; }
+            header.scrolled .logo { height: 30px; }
         }
     </style>
 </head>
 <body>
     <header id="header" role="banner">
-        <h1>Borges Tech Solutions</h1>
+        <img src="logo_borgestech.png" alt="Borges Tech Solutions Logo" class="logo" aria-label="Borges Tech Solutions">
         <button id="menu-toggle" aria-label="Alternar menu de navegação" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
         <nav role="navigation" aria-label="Menu principal">
             <a href="#home" aria-current="page">Home</a>
